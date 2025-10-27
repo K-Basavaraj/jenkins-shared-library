@@ -82,7 +82,7 @@ def call(Map configMap) {
               }
               steps {
                 echo "Triggering deployment job for environment: ${params.ENVIRONMENT}"
-                build job: 'Backend-CD', parameters: [string(name: 'version', value: "${env.appVersion}"), string(name: 'ENVIRONMENT', value: "${params.ENVIRONMENT}")], wait: true      
+                build job: "../${component}-CD", parameters: [string(name: 'version', value: "${env.appVersion}"), string(name: 'ENVIRONMENT', value: "${params.ENVIRONMENT}")], wait: true      
               }
             }
         }
