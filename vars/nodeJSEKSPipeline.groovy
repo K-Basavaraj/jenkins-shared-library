@@ -14,7 +14,7 @@ def call(Map configMap) {
         }
         environment {
           region = 'us-east-1'
-          account_id = '688567303455'
+          account_id = ''
           project = configMap.get("project")
           component = configMap.get("component")
         }
@@ -29,6 +29,9 @@ def call(Map configMap) {
                   def packageJson = readJSON file: 'Backend/package.json'
                   env.appVersion = packageJson.version
                   echo "App version: ${env.appVersion}"
+                  // Here is where we call your helper function
+                  account_id = pipelineGlobals.getAccountID(params.ENVIRONMENT)
+                  echo "Account ID for ${params.ENVIRONMENT}: ${account_id}"
                 }
               }
             }
