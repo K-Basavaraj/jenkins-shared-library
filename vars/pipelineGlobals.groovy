@@ -11,6 +11,6 @@ def getAccountID(String environment){
         case 'prod':
             return "315063654701"
         default:
-            return "nothing"
+            return "Unknown environment: ${environment}"
     } 
 }

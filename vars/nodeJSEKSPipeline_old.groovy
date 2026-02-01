@@ -1,5 +1,5 @@
-//this is function define a function name call()
-def call(Map configMap) {
+/Map configM/this is function define a function name call()
+def call(ap) {
     pipeline {
         agent {
           label 'AGENT-1'
